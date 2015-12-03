@@ -1,7 +1,6 @@
 from subprocess import Popen, PIPE, check_output
 import os
 import shutil
-from contextlib import suppress
 import sys
 from ocrmypdf.pageinfo import pdf_get_all_pageinfo
 import PyPDF2 as pypdf
