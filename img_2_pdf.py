@@ -17,7 +17,7 @@ def run_ocrmypdf_sh(input_file, output_file, *args):
 
 def convert_to_searchable(input_basename, output_basename, *args):
 	sh, _, err = run_ocrmypdf_sh(input_basename, output_basename, *args)
-	print err
+	print (err)
 
 
 if __name__ == "__main__":
