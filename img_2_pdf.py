@@ -6,10 +6,17 @@ from ocrmypdf.pageinfo import pdf_get_all_pageinfo
 import PyPDF2 as pypdf
 from ocrmypdf import ExitCode
 
-from pdfminer.pdfinterp import PDFResourceManager, PDFPageInterpreter
-from pdfminer.converter import TextConverter
-from pdfminer.layout import LAParams
-from pdfminer.pdfpage import PDFPage
+import PyPDF2
+
+
+def extract_text(file_name):
+	final_text = ""
+	pdfFileObj = open(file_name, 'rb')
+	pdfReader = PyPDF2.PdfFileReader(pdfFileObj)
+	for i in range(0, pdfReader.numPages):
+		pageObj = pdfReader.getPage(i)
+		final_text = final_text + pageObj.extractText()
+	return final_text
 
 def run_ocrmypdf_sh(input_file, output_file, *args):
 	sh_args = ['sh', "myOCRmyPDF.sh"] + list(args) + [input_file, output_file]
@@ -23,6 +30,7 @@ def run_ocrmypdf_sh(input_file, output_file, *args):
 def convert_to_searchable(input_basename, output_basename, *args):
 	sh, _, err = run_ocrmypdf_sh(input_basename, output_basename, *args)
 	print (err)
+	print (extract_text(output_basename))
 
 
 if __name__ == "__main__":
