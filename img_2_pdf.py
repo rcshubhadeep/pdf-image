@@ -6,6 +6,11 @@ from ocrmypdf.pageinfo import pdf_get_all_pageinfo
 import PyPDF2 as pypdf
 from ocrmypdf import ExitCode
 
+from pdfminer.pdfinterp import PDFResourceManager, PDFPageInterpreter
+from pdfminer.converter import TextConverter
+from pdfminer.layout import LAParams
+from pdfminer.pdfpage import PDFPage
+
 def run_ocrmypdf_sh(input_file, output_file, *args):
 	sh_args = ['sh', "myOCRmyPDF.sh"] + list(args) + [input_file, output_file]
 	sh = Popen(
