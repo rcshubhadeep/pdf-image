@@ -10,12 +10,12 @@ import PyPDF2
 
 
 def extract_text(file_name):
-	final_text = ""
+	final_text = []
 	pdfFileObj = open(file_name, 'rb')
 	pdfReader = PyPDF2.PdfFileReader(pdfFileObj)
 	for i in range(0, pdfReader.numPages):
 		pageObj = pdfReader.getPage(i)
-		final_text = final_text + pageObj.extractText()
+		final_text.append(pageObj.extractText())
 	return final_text
 
 def run_ocrmypdf_sh(input_file, output_file, *args):
