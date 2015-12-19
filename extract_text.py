@@ -45,4 +45,7 @@ def get_text_from_pdf(file_name):
 
 
 if __name__ == "__main__":
-	print type(get_text_from_pdf("resume-image.pdf"))
+	if get_text_from_pdf("resume-image.pdf") == "":
+		print "Hola"
+	else:
+		print "gola"
