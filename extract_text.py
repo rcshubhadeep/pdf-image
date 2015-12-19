@@ -45,4 +45,4 @@ def get_text_from_pdf(file_name):
 
 
 if __name__ == "__main__":
-	print get_text_from_pdf("test1.pdf")
+	print get_text_from_pdf("resume-image.pdf")
