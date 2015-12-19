@@ -52,10 +52,7 @@ def convert_to_searchable(input_basename, output_basename, *args):
 	sh, _, err = run_ocrmypdf_sh(input_basename, output_basename, *args)
 	print (err)
 	m = extract_text(output_basename)
-	for x in range(len(m)):
-		print(m[x].encode('utf-8'))
-	print ("--------------------------------")
-	print ("--------------------------------")
+	print m
 
 
 if __name__ == "__main__":
