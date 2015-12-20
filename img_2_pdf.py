@@ -57,7 +57,7 @@ def convert_to_searchable(input_basename, output_basename, *args):
 
 if __name__ == "__main__":
 	convert_to_searchable("resume-image.pdf", "test1.pdf")
-	convert_to_searchable("resume-text.pdf", "test2.pdf")
+	#convert_to_searchable("resume-text.pdf", "test2.pdf")
 
 
 # import pypdfocr.pypdfocr as P
